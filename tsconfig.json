@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"baseUrl": "./",
+		"declaration": true,
+		"lib": ["esnext"],
+		"moduleResolution": "node",
+		"outDir": "dist/",
+		"strict": true,
+		"target": "es5"
+	},
+	"exclude": ["node_modules/", "dist/"]
+}

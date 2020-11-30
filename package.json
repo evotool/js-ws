@@ -1,0 +1,81 @@
+{
+	"name": "@evojs/ws",
+	"version": "0.0.0-alpha0",
+	"description": "Nodejs HttpClient class",
+	"license": "MIT",
+	"main": "index.js",
+	"typings": "index.d.ts",
+	"scripts": {
+		"prebuild": "rm -rf dist/",
+		"build": "tsc --build tsconfig.build.json && node tools/build.js",
+		"prepublishOnly": "npm run build && npm run test && node tools/prepublish.js",
+		"release": "RELEASE_MODE=1 npm run prepublishOnly && npm publish --access public dist/",
+		"test": "jest --coverage --detectOpenHandles",
+		"lint": "eslint \"src/**/*.ts\" -f codeframe"
+	},
+	"dependencies": {
+		"ws": "^7.4.0"
+	},
+	"devDependencies": {
+		"@evojs/eslint-plugin": "^0.0.4",
+		"@types/content-type": "^1.1.3",
+		"@types/jest": "^26.0.15",
+		"@types/node": "^14.14.10",
+		"eslint": "^7.14.0",
+		"fs": "0.0.1-security",
+		"jest": "^26.6.3",
+		"path": "^0.12.7",
+		"ts-jest": "^26.4.4",
+		"typescript": "^4.1.2"
+	},
+	"jest": {
+		"collectCoverage": true,
+		"collectCoverageFrom": [
+			"src/**/*.ts"
+		],
+		"moduleFileExtensions": [
+			"js",
+			"ts"
+		],
+		"rootDir": "./",
+		"testEnvironment": "node",
+		"testRegex": ".spec.ts$",
+		"transform": {
+			"^.+\\.(ts|js)$": "ts-jest"
+		},
+		"globals": {
+			"ts-jest": {
+				"tsconfig": "tsconfig.spec.json"
+			}
+		}
+	},
+	"nodemonConfig": {
+		"ignore": [
+			".git/",
+			".vscode/",
+			"node_modules/",
+			"dist/",
+			"coverage/"
+		],
+		"exec": "npm run test",
+		"ext": "ts"
+	},
+	"author": {
+		"name": "Shamil Sultanov",
+		"email": "shamil.amirovich@gmail.com"
+	},
+	"keywords": [
+		"nodejs",
+		"evojs",
+		"ws",
+		"server"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/evotool/js-ws.git"
+	},
+	"bugs": {
+		"url": "https://github.com/evotool/js-ws/issues"
+	},
+	"homepage": "https://github.com/evotool/js-ws#readme"
+}

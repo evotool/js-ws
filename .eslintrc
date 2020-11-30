@@ -1,0 +1,20 @@
+{
+	"env": { "jest": true, "node": true },
+	"plugins": ["@evojs"],
+	"extends": ["plugin:@evojs/recommended"],
+	"parserOptions": {
+		"ecmaVersion": 2021
+	},
+	"overrides": [
+		{
+			"files": ["**/*.ts"],
+			"env": { "jest": true, "node": true },
+			"plugins": ["@evojs"],
+			"extends": ["plugin:@evojs/recommended-typescript"],
+			"parserOptions": {
+				"project": "tsconfig.json",
+				"sourceType": "module"
+			}
+		}
+	]
+}
